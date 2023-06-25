@@ -4,36 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
-    <link rel="stylesheet" type="text/css" src="assets/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
     <header class="header"> 
         <span class="highscore">Highscore</span>    
-        <span class="timer"> </span>    
+        <span class="timer">Time </span>    
     </header>
 <div class="container">
-    <h1 class="title">Coding Quiz Challenge!</h1>
-    <h2 class="question"> </h2> 
+    <div class="quiz-container">
+        <h1 id="center">Coding Quiz Challenge!</h1>
+    
+        <p id="center"><strong> To answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score and time by ten seconds!</strong> </p> 
+        <br>
+            
+        <br>
+        <button id="center"><a href="quiz.html">Start Quiz</button></a>
 
-    <ol>
-        <li>
-            <input type="radio" name="answer" id="a" class="answer">
-            <label for="a" id="a_text">Answer</label>
-        </li>
-        <li>
-            <input type="radio" name="answer" id="b" class="answer">
-            <label for="b" id="b_text">Answer</label>
-        </li>
-        <li>
-            <input type="radio" name="answer" id="c" class="answer">
-            <label for="c" id="c_text">Answer</label>
-        </li>
-        <li>
-            <input type="radio" name="answer" id="d" class="answer">
-            <label for="d" id="d_text">Answer</label>
-        </li>
-    </ol>
+    </div>
 </div>
     <script src="script.js"></script>
 
