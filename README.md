@@ -1,6 +1,6 @@
 # CodingQuiz
 Here is a fun quiz for new developers!
-Description
+## Description
 This website is a code quiz designed to test your coding knowledge. It features a timer that deducts ten seconds from the allotted time every time you select an incorrect choice. At the end of the quiz, you have the option to insert your initials to submit your high scores.
 
 ## Features
