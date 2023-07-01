@@ -8,25 +8,32 @@
 </head>
 <body>
     <header class="header"> 
-        <span class="highscore">Highscore</span>    
-        <span class="timer">Time </span>    
+        <span class="highscore"><a href="highscores.html"> Highscore</span></a> 
+        <span> <id="timer">Time </span>    
     </header>
     <div class="container">
         <div class="quiz-container">
             <h2 id="question"> Question</h2>
-            <div class="choice container">
-                <button id="choice1" value="1" class="choice-text">A</button>
+            <div id="choice1" class="choice-container">
+                <button class="choice">A</button>
             </div>
-            <div class="choice container">
-                <button id="choice2" value="1" class="choice-text">B</button>
+            <div id="choice2" class="choice-container">
+                <button class="choice">B</button>
             </div>
-            <div class="choice container">
-                <button id="choice3" value="4" class="choice-text">C</button>
+            <div id="choice3" class="choice-container">
+                <button  class="choice">C</button>
             </div>
-            <div class="choice container">
-                <button id="choice4" value="4" class="choice-text">D</button>
+            <div id="choice4" class="choice-container">
+                <button  class="choice">D</button>
             </div>
+            <p> </p>
         </div>
+    </div>
+    <div id="quizResultContainer">
+        <h2> Congrats, you have completed the quiz!</h2>
+        <p><strong>Your final score is .</strong></p>
+        <p><strong>Enter initials: </strong><input type="submit" value="Submit"></p>
+        <!-- Here we want the submit button to take us to the highscore page -->
     </div>
     <script src="game.js"></script>
 </body>
