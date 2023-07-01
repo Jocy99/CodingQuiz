@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
 .header {
     display: flex;
@@ -9,6 +9,11 @@
     flex-direction: row;
     flex: start;
 }
+h1 {
+    font-size: 3rem;
+
+}
+
 /* div .container {
     background-color: rgb(216, 98, 151);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -23,7 +28,7 @@
 /* }  */
 .quiz-container {
     padding: 10rem;
-    background-color: aliceblue;
+    background-color: rgb(170 124 238 / 50%);
     /* border-radius: 10px; */
     /* box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1); */
     width: 100%;
@@ -31,7 +36,17 @@
     overflow: hidden;
     display: block;
     justify-content: center;
-
+}
+.quiz-container {
+    padding: 10rem;
+    background-color: rgb(170 124 238 / 50%);
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1); */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    justify-content: center;
 }
 .choice-container {
     display: flex;
@@ -39,24 +54,24 @@
     width: 100%;
     font-size: 1rem;
     border: 0.1rem solid black;
-    background-color: aqua;
+    background-color: rgb(255 255 255 / 75%);
 }
 .choice-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-    transform: translateY(-0.1rem);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(140, 31, 195, 0.5);
+    transform: translateY(-0.2rem);
     transition: transform 150ms;
 }
 .choice-prefix{
     padding: 5px;
-    background-color: aquamarine;
+    background-color: rgb(255 255 255 / 75%);
     color: aliceblue;
 }
 .choice-text {
     padding: 1.5rem;
     width: fit-content;
 }
-#center {
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
