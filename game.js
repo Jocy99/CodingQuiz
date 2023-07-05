@@ -2,21 +2,25 @@ const question = document.getElementById('question');
 const choiceBtns = document.querySelectorAll(".choice-container");
 var timeLeft = 100;
 // curly braces means programmatic instructions
-var score = 0;
-let questionCounter = 0;
-let availableQuestions = [];
+var userScore = 0;
+// question counter defines which question the user is on
+var questionCounter = 0;
+var availableQuestions = [];
 var timeInterval;
 var timer = document.getElementById("timer");
-var timeLeft = timer.textContent;
+var timeLeft = 100;
 var startTimer = document.getElementById("startQuiz");
+var results = document.getElementById("resultContainer");
 // here we will hide the quiz results id element until user completes quiz we will reveal this container
-var hideResults = document.getElementById("quizResultContainer");
 
-function tempHideResults() {
-    hideResults.style.display.none;
-    console.log("HEY THERE:)")
-
-};
+// function hidenResults() {
+//     var results = document.getElementById("resultContainer");
+//     if (results) {
+//         results.style.display = "none";
+//     } else {
+//         results.style.display = "block";
+//     }
+// };
 
 // this function starts the quiz timer once begun
 // TO DO: Add the function that will subtract ten seconds each time the answer is incorrect
@@ -25,7 +29,11 @@ function countdownTimer() {
         if (timeLeft) {
             timeLeft--;
             timer.textContent = timeLeft;
-        } else {
+        }
+        else if {
+            
+        }
+            else {
             clearInterval(timeInterval)
         }
     }, 1000);
@@ -86,7 +94,6 @@ function checkingQuestion(e) {
     }
     questionCounter++
     populateQuestion()
-    console.log("hi!")
 };
 // Here we give all button choices a click event listener to loop on all choices
 for (var i = 0; i< choiceBtns.length; i++) {
@@ -102,8 +109,7 @@ function populateQuestion() {
     document.getElementById('choice4').textContent = currQuestion.choice4
 };
 // call our functions to populate quiz and start timer 
-// WHY IS tempHideResults function not owrking?
-tempHideResults(); 
+// hidenResults(); 
 populateQuestion();
 countdownTimer();
 // from here we need to add a <p> to the user that notifies if the user's choice was correct or incorrect
