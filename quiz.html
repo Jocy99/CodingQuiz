@@ -9,11 +9,11 @@
 <body>
     <header class="header"> 
         <span class="highscore"><a href="highscores.html"> Highscore</span></a> 
-        <span> <id="timer">Time </span>    
+        <span id="timer">Timer: </span>    
     </header>
     <div class="container">
         <div class="quiz-container">
-            <h2 id="question"> Question</h2>
+            <h2 id="question"> Question: </h2>
             <div id="choice1" class="choice-container">
                 <button class="choice">A</button>
             </div>
@@ -29,10 +29,10 @@
             <p> </p>
         </div>
     </div>
-    <div id="quizResultContainer">
+    <div id="resultContainer">
         <h2> Congrats, you have completed the quiz!</h2>
         <p><strong>Your final score is .</strong></p>
-        <p><strong>Enter initials: </strong><input type="submit" value="Submit"></p>
+        <p><strong>Enter initials: </strong><a href="highscores.html"><input type="submit" value="Submit"></a></p>
         <!-- Here we want the submit button to take us to the highscore page -->
     </div>
     <script src="game.js"></script>
