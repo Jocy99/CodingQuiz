@@ -30,12 +30,6 @@ function countdownTimer() {
             timeLeft--;
             timer.textContent = timeLeft;
         }
-        else if {
-            
-        }
-            else {
-            clearInterval(timeInterval)
-        }
     }, 1000);
 };
 
@@ -90,7 +84,7 @@ function checkingQuestion(e) {
     console.log(e.target.value)
     // alert(e.target.value === currQuestion.answer)
     if (e.target.value !== currQuestion.answer) {
-        timeLeft -= 10
+        timeLeft = timeLeft -10
     }
     questionCounter++
     populateQuestion()
