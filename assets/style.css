@@ -3,51 +3,44 @@
     margin: 0;
     padding: 10px;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex: start;
 }
+
+body {
+    background: #FEAC5E;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
 h1 {
     font-size: 3rem;
-
 }
 
-/* div .container {
-    background-color: rgb(216, 98, 151);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    display: flex;
-    /* align-items: center;
-    justify-content: center; */
-    /* height: 100%; */
-    /* margin: 0; */
-    /* box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1); */
-    /* width: 100%; */
-    /* overflow: hidden; */
-/* }  */
-.quiz-container {
+#quiz-container {
+    display: none;
     padding: 10rem;
     background-color: rgb(170 124 238 / 50%);
-    /* border-radius: 10px; */
-    /* box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1); */
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.5);
     width: 100%;
     height: 100%;
     overflow: hidden;
-    display: block;
-    justify-content: center;
+    
 }
-.quiz-container {
-    padding: 10rem;
-    background-color: rgb(170 124 238 / 50%);
-    /* border-radius: 10px; */
-    /* box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1); */
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: block;
-    justify-content: center;
+
+.highscores {
+
 }
+
 .choice-container {
     display: flex;
     margin-bottom: 0.5rem;
@@ -56,27 +49,36 @@ h1 {
     border: 0.1rem solid black;
     background-color: rgb(255 255 255 / 75%);
 }
+
 .choice-container:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(140, 31, 195, 0.5);
     transform: translateY(-0.2rem);
     transition: transform 150ms;
 }
-.choice-prefix{
+
+.choice-prefix {
     padding: 5px;
     background-color: rgb(255 255 255 / 75%);
     color: aliceblue;
 }
+
 .choice-text {
     padding: 1.5rem;
     width: fit-content;
 }
+
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 #resultContainer {
     display: none;
+}
+
+ol {
+    list-style: none;
 }

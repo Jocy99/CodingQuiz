@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,52 @@
 </head>
 
 <body>
-    <header class="header"> 
-        <span class="highscore"><a href="highscores.html"> Highscore</span></a>     
-        <span id="timer">Timer: </span>    
+    <header class="header">
+        <button class="highscore">View Highscores</button>
+        <span id="timer">Timer: </span>
     </header>
-<div class="container">
-    <div class="quiz-container">
-        <h1 class="center">Welcome to the Code Quiz Challenge</h1>
-    
-        <p class="center"><strong> Try to answer the following code-related questions within the time limit. 
-            <br> Keep in mind that incorrect answers will penalize your score and time by ten seconds! 
-           <br> Get ready, get set, go!</strong> </p> 
-        <br>
-            
-        <br>
-        <a class="center" href="quiz.html">Start Quiz</a>
+    <!-- this first container will be prompted in the beginning allowing user to click start quiz when user is ready -->
+        <div id="beginning-container">
+            <h1 class="center">Welcome to the Code Quiz Challenge</h1>
 
-    </div>
-</div>
+            <p class="center"><strong> Try to answer the following code-related questions within the time limit.
+                    <br> Keep in mind that incorrect answers will penalize your score and time by ten seconds!
+                    <br> Get ready, get set, go!</strong> </p>
+            <br>
+            <br>
+            <button id="start-quiz">Start Quiz</button> 
+        </div>
+        <!-- quiz container will populate once user has clicked start button, it will display questions -->
+        <div id="quiz-container">
+            <h2 id="question"> Question: </h2>
+            <div id="choice1" class="choice-container">
+                <button class="choice">A</button>
+            </div>
+            <div id="choice2" class="choice-container">
+                <button class="choice">B</button>
+            </div>
+            <div id="choice3" class="choice-container">
+                <button class="choice">C</button>
+            </div>
+            <div id="choice4" class="choice-container">
+                <button class="choice">D</button>
+            </div>
+            <p> </p>
+        </div>
+        <!-- this container will appear once the quiz is completed -->
+        <div class="center" id="resultContainer">
+            <h2> Congrats, you have completed the quiz!</h2>
+            <p><strong>Your final score is .</strong></p>
+            <p><strong>Enter initials: </strong><input type="text" id="initials"></p>
+            <!-- Here we want the submit button to save users initials to local storage -->
+            <button id="submitScore">Submit</button>
+            <div class="container-highscore">
+                <p>Highscores : </p>
+                <ol id="scoresList">
+                </ol>
+            </div>
     <script src="game.js"></script>
 
 </body>
+
 </html>

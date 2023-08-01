@@ -8,37 +8,57 @@ var questionCounter = 0;
 var availableQuestions = [];
 var timeInterval;
 var timer = document.getElementById("timer");
-var timeLeft = 100;
 var startTimer = document.getElementById("startQuiz");
 var results = document.getElementById("resultContainer");
-// here we will hide the quiz results id element until user completes quiz we will reveal this container
+var highscores = JSON.parse(localStorage.getItem('highscore')) || []
+var linkHS = document.querySelector('.highscore')
 
-// function hidenResults() {
-//     var results = document.getElementById("resultContainer");
-//     if (results) {
-//         results.style.display = "none";
-//     } else {
-//         results.style.display = "block";
-//     }
-// };
+// this function will show you the container of highscores when user selects button
+var highscoresButton = document.querySelector('.highscore');
 
-// this function starts the quiz timer once begun
-// TO DO: Add the function that will subtract ten seconds each time the answer is incorrect
+function linkHighscore() {
+    document.querySelector('#timer').style = 'display:none';
+    document.querySelector('.highscore').style = 'display:none';
+    document.querySelector('.quiz-container').style = 'display:none;';
+    document.querySelector('.container-highscore').style = 'display:block;';
+    console.log('is this working?');
+    var highscores = JSON.parse(localStorage.getItem('highscores'))
+    for (var i = 0; i < highscores.length; i++) {
+        var li = document.createElement('li')
+        li.textContent = highscores[i]
+        document.querySelector('#scoresList').appendChild(li)
+    }
+}
+highscoresButton.addEventListener('click', linkHighscore);
+
+// this function starts the quiz and timer once begun 
+function startQuiz() {
+    var beginningContainer = document.getElementById('beginning-container').style = 'display:none';
+    document.getElementById('quiz-container').style = "display:block";
+    console.log(beginningContainer);
+    countdownTimer();
+    
+};
+
+
+document.getElementById('start-quiz').addEventListener('click',() => startQuiz())
+// function that will subtract ten seconds each time the answer is incorrect
 function countdownTimer() {
     timeInterval = setInterval(function () {
-        if (timeLeft) {
+        if (timeLeft > 0) {
             timeLeft--;
             timer.textContent = timeLeft;
         }
-        else if {
-            
-        }
-            else {
+        else {
+            timeLeft = 0
             clearInterval(timeInterval)
-        }
+            document.querySelector('.quiz-container').style = "display:none";
+            document.querySelector('#resultContainer').style = "display:block";
+            timer.textContent = timeLeft;
+            finishedQuiz();
+        };
     }, 1000);
 };
-
 // array is filled with objects that will define the questions, choices, and answers
 let questionArray = [
     {
@@ -87,22 +107,29 @@ let questionArray = [
 // this function determines which question to prompt and when to complete the quiz
 function checkingQuestion(e) {
     const currQuestion = questionArray[questionCounter];
-    console.log(e.target.value)
+    console.log(e.target.textContent)
     // alert(e.target.value === currQuestion.answer)
-    if (e.target.value !== currQuestion.answer) {
+    if (e.target.textContent !== currQuestion.answer) {
         timeLeft -= 10
+        console.log("Incorrect!")
     }
     questionCounter++
-    populateQuestion()
+    if (questionCounter >= questionArray.length) {
+        document.querySelector('#quiz-container').style = "display:none";
+        document.querySelector('#resultContainer').style = "display:block";
+        finishedQuiz();
+        clearInterval(timeInterval);
+    } else {
+        populateQuestion();
+    }
 };
 // Here we give all button choices a click event listener to loop on all choices
-for (var i = 0; i< choiceBtns.length; i++) {
+for (var i = 0; i < choiceBtns.length; i++) {
     choiceBtns[i].addEventListener('click', checkingQuestion);
-    console.log("added event listner")
 }
 function populateQuestion() {
     const currQuestion = questionArray[questionCounter];
-    document.getElementById('question').textContent = "Question: " + currQuestion.question,
+    document.getElementById('question').textContent = currQuestion.question
     document.getElementById('choice1').textContent = currQuestion.choice1
     document.getElementById('choice2').textContent = currQuestion.choice2
     document.getElementById('choice3').textContent = currQuestion.choice3
@@ -111,5 +138,28 @@ function populateQuestion() {
 // call our functions to populate quiz and start timer 
 // hidenResults(); 
 populateQuestion();
-countdownTimer();
-// from here we need to add a <p> to the user that notifies if the user's choice was correct or incorrect
+
+// once the user clicks last questoins answer it will set off our finished quiz function, hiding the quiz container and adding a hs initial option
+
+function finishedQuiz() {
+    console.log(highscores)
+    var score = timeLeft;
+    document.querySelector("#submitScore").addEventListener('click', function () {
+        document.querySelector('#timer').style = 'display:none';
+        document.querySelector('.highscore').style = 'display:none';
+        var anchor = document.createElement('a');
+        var link = document.createTextNode('Home');
+        anchor.appendChild(link);
+        anchor.href = "index.html";
+        document.body.appendChild(anchor);
+        anchor.style = 'display:flex; justify-content: center;';
+        var initials = document.querySelector("#initials").value;
+        highscores.push(initials + '; ' + score)
+        localStorage.setItem("highscore", JSON.stringify(highscores))
+        for (var i = 0; i < highscores.length; i++) {
+            var li = document.createElement('li')
+            li.textContent = highscores[i]
+            document.querySelector('#scoresList').appendChild(li)
+        }
+    })
+};
