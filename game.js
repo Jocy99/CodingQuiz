@@ -109,9 +109,8 @@ function checkingQuestion(e) {
     const currQuestion = questionArray[questionCounter];
     console.log(e.target.textContent)
     // alert(e.target.value === currQuestion.answer)
-    if (e.target.textContent !== currQuestion.answer) {
-        timeLeft -= 10
-        console.log("Incorrect!")
+    if (e.target.value !== currQuestion.answer) {
+        timeLeft = timeLeft -10
     }
     questionCounter++
     if (questionCounter >= questionArray.length) {
