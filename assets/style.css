@@ -4,6 +4,20 @@
     padding: 10px;
 }
 
+.highscore {
+    border-radius: 15px;
+    background-color: rgb(234, 170, 248);
+
+}
+
+#start-quiz {
+    display: flex;
+    align-items: center;
+    margin-left: 45%;
+    border-radius: 15px;
+    background-color: rgb(234, 170, 248);
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -35,10 +49,6 @@ h1 {
     height: 100%;
     overflow: hidden;
     
-}
-
-.highscores {
-
 }
 
 .choice-container {
